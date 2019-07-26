@@ -62,6 +62,7 @@ else {
   $rdfuri = "http://localhost/yamldoc/id.php/$_GET[cat]/$_GET[res]";
 }
 
+echo "rdfuri=$rdfuri<br>\n";
 $data = json_decode(file_get_contents($rdfuri), true);
 echo "<pre>data="; print_r($data); echo "</pre>\n";
 echo "<table border=1>";
