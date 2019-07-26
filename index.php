@@ -29,8 +29,8 @@ if (!isset($_GET['cat'])) {
 }
 
 function showObj(string $obj): string {http:///mtescat/dataset/ENPA
-  if (preg_match('!^https?://localhost/yamldoc/id.php/([^/]+)/(.*)$!', $obj, $matches))
-    return "<a href='?cat=$matches[1]&amp;res=".urlencode($matches[2])."' target='_blank'>$obj</a>";
+  if (preg_match('!^http://(localhost/yamldoc/id.php|id.georef.eu)/([^/]+)/(.*)$!', $obj, $matches))
+    return "<a href='?cat=$matches[2]&amp;res=".urlencode($matches[3])."'>$obj</a>";
   elseif (preg_match('!^https?://!', $obj))
     return "<a href='$obj' target='_blank'>$obj</a>";
   else
@@ -59,7 +59,8 @@ else {
   echo "<title>dcat $_GET[cat]</title>\n";
   echo "</meta>\n";
   echo "Affichage de la ressource $_GET[res] du catalogue $_GET[cat]<br>\n";
-  $rdfuri = "http://localhost/yamldoc/id.php/$_GET[cat]/$_GET[res]";
+  $rdfuri = ($_SERVER['HTTP_HOST']=='localhost') ? "http://localhost/yamldoc/id.php" : "http://id.georef.eu";
+  $rdfuri .= "/$_GET[cat]/$_GET[res]";
 }
 
 echo "rdfuri=$rdfuri<br>\n";
