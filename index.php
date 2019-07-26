@@ -10,6 +10,7 @@ journal:
   26/7/2019:
     - première version
 */
+//print_r($_SERVER);
 
 // Liste des catalogues
 if (!isset($_GET['cat'])) {
@@ -45,7 +46,8 @@ if (!isset($_GET['res'])) {
   echo "<title>dcat $_GET[cat]</title>\n";
   echo "</meta>\n";
   echo "Accueil du catalogue $_GET[cat]<br>\n";
-  $rdfuri = "http://localhost/yamldoc/id.php/$_GET[cat]/catalog";
+  $rdfuri = ($_SERVER['HTTP_HOST']=='localhost') ? "http://localhost/yamldoc/id.php" : "http://id.georef.eu";
+  $rdfuri .= "/$_GET[cat]/catalog";
 }
 
 // Description d'une ressource du catalogue
