@@ -31,8 +31,8 @@ if (!isset($_GET['cat'])) {
 function showObj(string $obj): string {http:///mtescat/dataset/ENPA
   if (preg_match('!^http://(localhost/yamldoc/id.php|id.georef.eu)/([^/]+)/(.*)$!', $obj, $matches))
     return "<a href='?cat=$matches[2]&amp;res=".urlencode($matches[3])."'>$obj</a>";
-  elseif (preg_match('!^https?://!', $obj))
-    return "<a href='$obj' target='_blank'>$obj</a>";
+  elseif (preg_match('!^(https?://[^ ]+)!', $obj, $matches))
+    return "<a href='$matches[1]' target='_blank'>$obj</a>";
   else
     return $obj;
 }
