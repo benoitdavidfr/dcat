@@ -1,0 +1,24 @@
+title: dcat - site catalogue de données
+path: /georef/dcat
+doc: |
+  Site Html + RDFa de publication des catalogues de données.
+  Un site général, exposé sur http://dcat.georef.eu/, donne accès à la liste des catalogues.
+  Chaque Catalogue est un sous-site comme http://dcat.georef.eu/mtescat/ pour le catalogue des données MTES
+  qui correspond à l'URI http://id.georef.eu/mtescat/catalog.
+  Chaque catalogue liste les ressources cataloguées.
+  Une ressource est liée à d'autres ressources.
+  Chaque ressource est identifiée par un URI du type http://id.georef.eu/{catid}/{resid}
+  Elle est présentée par une page HTML+RDFa http://dcat.georef.eu/?cat={catid}&res={resid}
+  
+  Le nom dcat.georef.eu est renvoyé vers http://georef.eu/dcat/index.php qui gère ttes les pages.
+  
+  Sur localhost page http://localhost/georef/dcat/?cat={catid}&res={resid}
+  
+journal: |
+  26/7/2019:
+    création
+    
+phpScripts:
+  - /georef/dcat/index.php
+phpIncludes:
+htmlFiles:
