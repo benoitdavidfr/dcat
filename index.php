@@ -1,7 +1,7 @@
 <?php
 /*PhpDoc:
 name: index.php
-title: index.php - exposition HTML+JSON-LD des catalogues de données
+title: index.php - exposition HTML+JSON-LD de catalogues de données
 functions:
 doc: |
   Chaque ressource est identifiée par un URI du type http://id.georef.eu/{catid}/{resid}
@@ -9,6 +9,7 @@ doc: |
 journal:
   29/7/2019:
     - intégration du JSON-LD
+    - exposition à Google
   26/7/2019:
     - première version
     - la visualisation fonctionne en localhost et sur georef.eu
